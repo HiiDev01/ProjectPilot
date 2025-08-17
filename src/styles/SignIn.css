@@ -1,0 +1,125 @@
+.home{
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--base-bg);
+}
+.wrapper{
+  background-color: var( --bg);
+  padding: 30px;
+  box-shadow: 0px 0px 20px var(  --shadow),
+              0px 0px 20px var(  --shadow);
+  border-radius: 5px;
+}
+.head{
+  width: 100%;
+  margin: 0px 0px 30px 0px;
+}
+.head > div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  margin: 0px 0px 8px 0px;
+}
+.head > div .icon{
+  color: var(--main);
+  font-weight: 600;
+}
+.head > div h1{
+  font-family: var(--font-one);
+  color: var(--dark-text);
+  font-weight:bold;
+  text-transform: capitalize;
+  font-style: normal;
+  font-size: 2rem;
+}
+.head  p{
+  font-size: 0.9rem;
+  color: var(--light-text);
+  font-family: var(--font-two);
+  font-weight: 400;
+  margin: 0px 5px 0px 5px ;
+  text-align: center;
+}
+form label{
+  display: inline-block;
+  font-size: 0.9rem;
+  margin: 0px 0px 5px 0px;
+  color: var(--dark-text);
+  font-family: var(--font-two);
+  text-transform: capitalize;
+  font-weight: 500;
+}
+form input{
+  display: block;
+  width:  100%;
+  padding: 10px 10px;
+  margin: 5px 0px 20px 0px;
+  border-radius: 5px;
+  background-color: var(--base-bg);
+  border: none;
+  outline:  none;
+  font-size: 0.9rem;
+  color: var(--light-text);
+}
+.innerCon{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.innerCon a{
+  color: var(--dark-text);
+  font-weight: 400;
+  font-family: var(--font-two);
+  font-size: 0.85rem;
+}
+form button{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font-weight: 500;
+  font-family: var(--font-two);
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.loginBtn{
+  background-color: var(--main);
+  color: var(--bg);
+  transition: opacity 0.2s ease;
+  margin: 0px 0px 8px 0px;
+  font-size: 0.95rem;
+}
+.loginBtn:hover{
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+.demo{
+  background-color: var(--base-bg);
+  color: var(--dark-text);
+  margin: 0px 0px 15px 0px;
+  font-size: 0.95rem;
+  transition: opacity 0.4s ease;
+}
+.demo:hover{
+  background-color: rgba(255,118,68,255);
+  color: var(--bg);
+  opacity: 0.9;
+  transition: opacity 0.4s ease;
+}
+.signupLink{
+  text-align: center;
+  font-family: var(--font-two);
+  color: var(--dark-text);
+  font-size: 0.85rem;
+}
+.signupLink a{
+  font-size: 0.9rem;
+  color: var(--dark-text);
+  cursor: pointer;
+}
