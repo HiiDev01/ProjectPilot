@@ -86,6 +86,16 @@ const Dashboard = () => {
           </div>
 
         </div>
+
+        <div className='dashGridTwo'>
+          <div className='projects'>
+            <div className="projecthead">
+              <h1>Recent Projects</h1>
+              <p>An overview of the latest projects.</p>
+            </div>
+          </div>
+          <div className='overview'></div>
+        </div>
       </div>
     </div>
   )
