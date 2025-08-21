@@ -29,33 +29,31 @@
       "userId": 1
     }
   ],
-  "projects": [
+   "projects": [
     {
       "id": "p1",
-      "client_id": "c1",
-      "project_name": "Helen's Online Store",
-      "website_type": "E-commerce",
-      "start_date": "2025-08-11",
-      "end_date": "2025-09-10",
-      "price": 250000,
-      "stack_used": "React, Tailwind, Supabase",
-      "template_url": "https://via.placeholder.com/300x200.png?text=Helen+Store+Template",
+      "title": "Helen's Online Store",
+      "clientName": "Helen Johnson",
       "status": "in_progress",
-      "created_at": "2025-08-11T09:00:00Z",
+      "dueDate": "2025-09-10",
+      "startDate": "2025-08-11",
+      "price": 250000,
+      "stack": "React, Tailwind, Supabase",
+      "template": "https://via.placeholder.com/300x200.png?text=Helen+Store+Template",
+      "createdAt": "2025-08-11T09:00:00Z",
       "userId": 1
     },
     {
       "id": "p2",
-      "client_id": "c2",
-      "project_name": "John's Bakery Website",
-      "website_type": "Portfolio",
-      "start_date": "2025-08-13",
-      "end_date": "2025-09-05",
-      "price": 180000,
-      "stack_used": "Next.js, Tailwind",
-      "template_url": "https://via.placeholder.com/300x200.png?text=Bakery+Template",
+      "title": "John's Bakery Website",
+      "clientName": "John Doe",
       "status": "pending",
-      "created_at": "2025-08-13T12:00:00Z",
+      "dueDate": "2025-09-05",
+      "startDate": "2025-08-13",
+      "price": 180000,
+      "stack": "Next.js, Tailwind",
+      "template": "https://via.placeholder.com/300x200.png?text=Bakery+Template",
+      "createdAt": "2025-08-13T12:00:00Z",
       "userId": 1
     }
   ]

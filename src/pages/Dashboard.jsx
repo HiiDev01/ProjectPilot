@@ -13,7 +13,8 @@ const Dashboard = () => {
     totalProject: 8,
     pendingProject: 2,
     deliveredProjects: 12
-  })
+  });
+  const [project, setProject] = useState([])
 
   useEffect(()=>{
     const fetchItems = async() =>{
@@ -37,6 +38,22 @@ const Dashboard = () => {
     }
     fetchItems();
   },[])
+  useEffect(()=>{
+    const fetchProjects = async () =>{
+      try {
+        const res = await fetch('http://localhost:5000/projects');
+        if(!res.ok){
+          throw new Error  
+        }
+        const data  = await res.json()
+        setProject(data)
+        console.log(data);
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchProjects;
+  }, [])
   
   return (
     <div className='dashboard'>
@@ -88,11 +105,30 @@ const Dashboard = () => {
         </div>
 
         <div className='dashGridTwo'>
+
           <div className='projects'>
             <div className="projecthead">
               <h1>Recent Projects</h1>
               <p>An overview of the latest projects.</p>
             </div>
+              <table>
+                <thead>
+                  <th>project</th>
+                  <th>client</th>
+                  <th>status</th>
+                  <th>due date</th>
+                </thead>
+                  <tbody>
+                    {project.map((projects) => (
+                      <tr key={projects.id}>
+                        <td>{projects.title}</td>
+                        <td>{projects.clientName}</td>
+                        <td>{projects.status}</td>
+                        <td>{projects.dueDate}</td>
+                      </tr>
+                    ))}
+                 </tbody>
+              </table>
           </div>
           <div className='overview'></div>
         </div>
