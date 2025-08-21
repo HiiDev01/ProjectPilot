@@ -11,11 +11,14 @@ export const getProjects = async () =>{
 }
 
 export const getPendings = async () =>{
-  const res = await fetch(`${API_URL}/projects?status=pending}`);
+  const res = await fetch(`${API_URL}/projects?status=pending`);
   return await res.json();
 }
 export const getDelivered = async () =>{
-  const res = await fetch(`${API_URL}/projects?status=delivered}`);
+  const res = await fetch(`${API_URL}/projects?status=delivered`);
   return await res.json();
 }
-
+export const getInProgess = async () =>{
+  const res = await fetch(`${API_URL}/projects?status=in_progress`);
+  return await res.json();
+}

@@ -68,6 +68,19 @@
       "template": "https://via.placeholder.com/300x200.png?text=Bakery+Template",
       "createdAt": "2025-08-13T12:00:00Z",
       "userId": 1
+    },
+    {
+      "id": "p4",
+      "title": "Salon Booking App",
+      "clientName": "Helen Johnson",
+      "status": "in_progress",
+      "dueDate": "2025-09-20",
+      "startDate": "2025-08-15",
+      "price": 300000,
+      "stack": "Vue, Tailwind, Firebase",
+      "template": "https://via.placeholder.com/300x200.png?text=Salon+Booking+App",
+      "createdAt": "2025-08-15T10:00:00Z",
+      "userId": 1
     }
   ]
 }

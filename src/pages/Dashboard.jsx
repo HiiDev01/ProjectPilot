@@ -4,7 +4,9 @@ import '../styles/Dashboard.css'
 import { LuUsers,LuClock } from "react-icons/lu";
 import { BsSuitcaseLg } from "react-icons/bs";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import { getClients, getProjects,getPendings,getDelivered } from '../apis/Api'
+import { getClients, getProjects,getPendings,getDelivered, getInProgess } from '../apis/Api'
+import DonutChart from '../components/DonutChart';
+import Theme from '../components/Theme';
 
 
 const Dashboard = () => {
@@ -20,17 +22,19 @@ const Dashboard = () => {
   useEffect(()=>{
     const fetchItems = async() =>{
       try {
-        const [client, projects, pending, delivered] = await Promise.all([
+        const [client, projects, pending, delivered, inProgess] = await Promise.all([
           getClients(),
           getProjects(),
           getPendings(),
-          getDelivered()
+          getDelivered(),
+          getInProgess()
         ]);
         setDashItem({
           totalClient: client.length,
           totalProject: projects.length,
           pendingProject: pending.length,
-          deliveredProjects: delivered.length
+          deliveredProjects: delivered.length,
+          inProgessProjects: inProgess.length
         });
       
       } catch (error) {
@@ -127,7 +131,7 @@ const Dashboard = () => {
                         <td>{projects.title}</td>
                         <td className='client'>
                           <div className='clientImgCon'>
-                            <img src="" alt="" />
+                            {/*<img src="" alt="" />*/}
                           </div>
                           {projects.clientName}
                         </td>
@@ -142,7 +146,13 @@ const Dashboard = () => {
                  </tbody>
               </table>
           </div>
-          <div className='overview'></div>
+          <div className='overview'>
+            <div className="overviewheader">
+              <h1>Projects Overview</h1>
+              <p>A breakdown of project statuses.</p>
+            </div>
+            <DonutChart dashItem={dashItem}/>
+          </div>
         </div>
       </div>
     </div>

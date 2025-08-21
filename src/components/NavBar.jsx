@@ -6,6 +6,7 @@ import { LuUsers } from "react-icons/lu";
 import { BsStars } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import Theme from './Theme';
 
 const NavBar = () => {
   const navList = [

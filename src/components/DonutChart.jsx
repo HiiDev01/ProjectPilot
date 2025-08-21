@@ -1,4 +1,3 @@
-// DonutChart.jsx
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
@@ -6,14 +5,23 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 // Register required components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const DonutChart = () => {
+const DonutChart = ({dashItem}) => {
+    if (!dashItem) {
+    return <p>Loading chart...</p>;
+  }
   const data = {
-    labels: ["delivered", "In Progress", "Pending"],
+    labels: ["Delivered", "Pending", "In Progress", "Total Projects", "Clients"],
     datasets: [
       {
         label: "Projects",
-        data: [12, 19, 7], // your values
-        backgroundColor: ["#4CAF50", "#FFC107", "#F44336"],
+        data: [
+          dashItem.deliveredProjects || 0,
+          dashItem.pendingProject || 5,
+          dashItem.inProgessProjects || 4, 
+          dashItem.totalProject || 3,
+          dashItem.totalClient || 6,
+        ], 
+        backgroundColor: ["#155724", "#856404", "#2196F3", "#9C27B0", "#ff9800"],
         borderWidth: 1,
       },
     ],
