@@ -55,6 +55,19 @@
       "template": "https://via.placeholder.com/300x200.png?text=Bakery+Template",
       "createdAt": "2025-08-13T12:00:00Z",
       "userId": 1
+    },
+        {
+      "id": "p3",
+      "title": "John's Bakery Website",
+      "clientName": "John Doe",
+      "status": "delivered",
+      "dueDate": "2025-09-05",
+      "startDate": "2025-08-13",
+      "price": 180000,
+      "stack": "Next.js, Tailwind",
+      "template": "https://via.placeholder.com/300x200.png?text=Bakery+Template",
+      "createdAt": "2025-08-13T12:00:00Z",
+      "userId": 1
     }
   ]
 }

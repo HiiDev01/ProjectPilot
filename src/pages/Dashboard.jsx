@@ -14,7 +14,8 @@ const Dashboard = () => {
     pendingProject: 2,
     deliveredProjects: 12
   });
-  const [project, setProject] = useState([])
+  const [project, setProject] = useState([]);
+
 
   useEffect(()=>{
     const fetchItems = async() =>{
@@ -52,7 +53,7 @@ const Dashboard = () => {
         console.log(error)
       }
     }
-    fetchProjects;
+    fetchProjects();
   }, [])
   
   return (
@@ -107,23 +108,34 @@ const Dashboard = () => {
         <div className='dashGridTwo'>
 
           <div className='projects'>
-            <div className="projecthead">
+            <div className="projectheader">
               <h1>Recent Projects</h1>
               <p>An overview of the latest projects.</p>
             </div>
-              <table>
+              <table className='projectTable'>
                 <thead>
-                  <th>project</th>
-                  <th>client</th>
-                  <th>status</th>
-                  <th>due date</th>
+                  <tr>
+                    <th>project</th>
+                    <th>client</th>
+                    <th>status</th>
+                    <th>due date</th>
+                  </tr>
                 </thead>
                   <tbody>
                     {project.map((projects) => (
                       <tr key={projects.id}>
                         <td>{projects.title}</td>
-                        <td>{projects.clientName}</td>
-                        <td>{projects.status}</td>
+                        <td className='client'>
+                          <div className='clientImgCon'>
+                            <img src="" alt="" />
+                          </div>
+                          {projects.clientName}
+                        </td>
+                        <td className='status'> 
+                          <span className={`status-badge ${projects.status}`}>
+                            {projects.status}
+                          </span>
+                          </td>
                         <td>{projects.dueDate}</td>
                       </tr>
                     ))}
