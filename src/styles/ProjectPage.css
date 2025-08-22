@@ -1,0 +1,36 @@
+.projectPage{
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  align-items: flex-start;
+}
+.projectMain{
+  flex: 1;
+  padding: 5px 20px;
+  border: 1px solid black;
+}
+
+.header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 0px 40px 0px;
+}
+.projecthead{
+  width: max-content;
+}
+.projecthead h1{
+  font-size: 1.5rem;
+  font-family: var(--font-two);
+  font-weight: 500;
+  color: var(--dark-text);
+  text-transform: capitalize;
+  margin: 0px 0px 5px 0px;
+}
+.projecthead p{
+  font-size: 1rem;
+  color: var(--light-text);
+  font-family: var(--font-one);
+  font-weight: 400;
+}

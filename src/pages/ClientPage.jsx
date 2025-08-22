@@ -7,14 +7,23 @@ import { LiaTimesSolid } from "react-icons/lia";
 
 
 const ClientPage = () => {
+  const [searchBox, setSearchBox] = React.useState(" ");
   const [clients, setClients] = React.useState([]);
   const [clientPopup, setClientPopup] = React.useState(false);
   const [loading, setLoading] = React.useState(false)
   const [newClient, setNewClient] = React.useState({
-    name: " ",
-    email: ""
-  })
+    company: " ",
+    email: "",
+    projectNumber: 0
+  });
 
+  const fliterClients = searchBox.trim() ?
+    clients.filter((client) =>
+       client.company.toLowerCase().includes(searchBox.trim().toLocaleLowerCase())
+  ) 
+  : clients;
+
+  
   const handleChangeInput = (e) => {
     setNewClient({
       ...newClient,
@@ -64,6 +73,18 @@ const ClientPage = () => {
     e.preventDefault();
     setLoading(true);
     try {
+      const checkExistingClient = await fetch(`http://localhost:5000/clients?email=${newClient.email}`)
+      const existingClient = await checkExistingClient.json();
+
+      if(existingClient.length > 0){
+        alert('cleint with this email already exists');
+        setLoading(false);
+        setNewClient({company: '', email: '', projectNumber: 0})
+        return;
+      }
+      
+
+
       const res = await fetch('http://localhost:5000/clients', {
         method: 'POST', 
         headers: {'Content-Type' : 'application/json'},
@@ -72,11 +93,16 @@ const ClientPage = () => {
       if(!res.ok){
         throw new Error('failed to add client')
       }
-      const addedClient = await res.json()
+      const addedClient = await res.json();
+      setClients((prev) => [...prev, addedClient]);
+      setNewClient({company: "", email: "", projectNumber: 0});
+      setClientPopup(false);
+      alert('client added successfully');
+      setLoading(false);
       handleClosePopup();
     } catch (error) {
       console.error('Error adding client:', error);
-      setLoading(true);
+      setLoading(false);
       return
     } finally {
       setLoading(false);
@@ -100,8 +126,9 @@ const ClientPage = () => {
                 <input 
                   type="search" 
                   name="search" 
-                  id="search" 
-                  
+                  id="search"
+                  value={searchBox} 
+                  onChange={(e) => setSearchBox(e.target.value)}
                   placeholder='search by client name'
                 />
               </div>
@@ -122,7 +149,7 @@ const ClientPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {clients.map((client) => (
+                {fliterClients.map((client) => (
                   <tr key={client.id}>
                     <td className='clientName clientTd'>
                       <div className="clientImg">
@@ -151,17 +178,30 @@ const ClientPage = () => {
             <p>Enter the details of the new client. Click save when you're done.</p>
           </div>
           <form action="" className='Clform' onSubmit={handleSaveClient}>
-            <label htmlFor="name">name</label>
+            <label htmlFor="company">name</label>
             <input 
               type="text" 
-              name="name" 
-              id="name" 
+              name="company" 
+              id="company" 
               placeholder='innovate inc.'
-              value={newClient.name}
-              onChange={handleChangeInput}/>
+              value={newClient.company}
+              onChange={handleChangeInput}
+              required
+            />
             <label htmlFor="email">email</label>
-            <input type="email" name="email" id="email" placeholder='contact@innovate.com'/>
-            <button type="submit" >save client</button>
+            <input type="email" 
+              name="email" 
+              id="email" 
+              placeholder='contact@innovate.com'
+              value={newClient.email}
+              onChange={handleChangeInput}
+              required
+            />
+            <button 
+              type="submit"
+              disabled={loading}> 
+             {loading ? 'saving...' : 'save client'}
+            </button>
           </form>
         </div>
       </div>)}
