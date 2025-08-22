@@ -7,7 +7,7 @@
       "name": "Admin User"
     }
   ],
- "clients": [
+  "clients": [
     {
       "id": "c1",
       "name": "Helen's Hair Salon",
@@ -29,9 +29,14 @@
       "created_at": "2025-08-12T14:30:00Z",
       "userId": 1,
       "projectNumber": 5
+    },
+    {
+      "id": "156b",
+      "name": " hiidev inc.",
+      "email": ""
     }
   ],
-   "projects": [
+  "projects": [
     {
       "id": "p1",
       "title": "Helen's Online Store",
@@ -58,7 +63,7 @@
       "createdAt": "2025-08-13T12:00:00Z",
       "userId": 1
     },
-        {
+    {
       "id": "p3",
       "title": "John's Bakery Website",
       "clientName": "John Doe",
