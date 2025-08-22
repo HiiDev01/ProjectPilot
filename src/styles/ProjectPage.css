@@ -9,16 +9,14 @@
   padding: 5px 20px;
   border: 1px solid black;
 }
-
-.header{
-  width: 100%;
+.projectHeader{
   display: flex;
-  align-items: center;
+  align-content: center;
   justify-content: space-between;
   margin: 0px 0px 40px 0px;
 }
 .projecthead{
-  width: max-content;
+  width: auto;
 }
 .projecthead h1{
   font-size: 1.5rem;
@@ -33,4 +31,24 @@
   color: var(--light-text);
   font-family: var(--font-one);
   font-weight: 400;
+}
+
+.addProjectBtn{
+  padding: 0px 15px;
+  border: none;
+  color: var(--bg);
+  font-size: 0.9rem;
+  font-family: var(--font-one);
+  text-transform: capitalize;
+  font-weight: 500;
+  background-color: var(  --main);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.addProjectBtn span{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
