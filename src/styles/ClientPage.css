@@ -94,6 +94,10 @@
 .clientTable{
   width: 100%;
 }
+.clientTable table{
+  width: 100%;
+  border-collapse: collapse;
+}
 .clientTable th{
   padding: 20px 10px;
   text-align: left;
