@@ -139,7 +139,7 @@ const Dashboard = () => {
                           <span className={`status-badge ${projects.status}`}>
                             {projects.status}
                           </span>
-                          </td>
+                        </td>
                         <td>{projects.dueDate}</td>
                       </tr>
                     ))}

@@ -138,6 +138,7 @@
   align-items: center;
   justify-content: center;
   overflow: auto;
+  user-select: none;
 }
  .card{
   width: 50%;

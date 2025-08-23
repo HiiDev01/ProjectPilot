@@ -96,7 +96,11 @@ const ProjectPage = () => {
                     </span>
                     {project.title}</td>
                   <td>{project.company}</td>
-                  <td>{project.status}</td>
+                  <td className='status'> 
+                    <span className={`status-badge ${project.status}`}>
+                      {project.status}
+                    </span>
+                  </td>
                   <td>{project.dueDate}</td>
                   <td>
                     <a href={project.link} 
