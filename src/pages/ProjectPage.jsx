@@ -54,8 +54,8 @@ const ProjectPage = () => {
       } catch (error) {
         console.log('error fetching client');
       }
-      fetchClients();
     }
+    fetchClients();
   },[])
   return (
     <div className='projectPage'>
