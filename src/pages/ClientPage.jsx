@@ -7,12 +7,12 @@ import { LiaTimesSolid } from "react-icons/lia";
 
 
 const ClientPage = () => {
-  const [searchBox, setSearchBox] = React.useState(" ");
+  const [searchBox, setSearchBox] = React.useState("");
   const [clients, setClients] = React.useState([]);
   const [clientPopup, setClientPopup] = React.useState(false);
   const [loading, setLoading] = React.useState(false)
   const [newClient, setNewClient] = React.useState({
-    company: " ",
+    company: "",
     email: "",
     projectNumber: 0
   });
@@ -83,7 +83,6 @@ const ClientPage = () => {
         return;
       }
       
-
 
       const res = await fetch('http://localhost:5000/clients', {
         method: 'POST', 

@@ -201,16 +201,23 @@
     background-color: transparent;
     outline: none;
     border-radius: 5px;
-    font-family: var(--font-one);
-    color: var(--light-text);
-    font-size: 1rem;
+    font-family: var(--font-two);
+    color: var(--dark-text);
+    font-size: 0.9rem;
     border: 0.5px solid var(--shadow);
+    margin: 0px 0px 10px 0px;
+  }
+  .projectForm select option{
+    color: var(--dark-text);
+    font-family: var(--font-two);
+    font-size: 0.95rem;
     margin: 0px 0px 10px 0px;
   }
   .formgrid{
     display: flex;
     align-items: center;
     gap: 10px;
+    margin: 5px 0px 0px 0px;
   }
   .projectForm input::placeholder{
       font-size: 0.85rem;

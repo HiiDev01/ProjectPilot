@@ -10,18 +10,32 @@ import { getClients, getProjects } from '../apis/Api';
 
 
 const ProjectPage = () => {
+  const [newProject, setNewProject] = useState({
+    name: "",
+    client: "",
+    templateUrl: "",
+    webUrl: "",
+    startDate: "",
+    endDate: "",
+    file: ""
+  });
   const [projects, setProjects] = useState([]);
   const [company, setCompany] = useState([]);
   const [popup, setPopup] = useState(false);
   const [error, setError] = useState(null);
   const popRef = useRef(null);
 
+  /// button to show the poup form
   const handleShowAddForm = () => {
     setPopup(true);
   }
+
+  // buttont to close the popup form
   const closeShowAddForm = () => {
     setPopup(false)
   }
+
+  /////////Ref  to close the poup form
   useEffect(()=>{
     const handleClosePop = (e) =>{
       if(popRef.current && !popRef.current.contains(e.target)){
@@ -32,8 +46,23 @@ const ProjectPage = () => {
     return () => {
       document.removeEventListener('mousedown', handleClosePop)
     }
-  }, [popRef])
+  }, [popRef]);
 
+  /// tracking the Popup form input and updating
+  const handleChangeProjectInput = (e) => {
+    setNewProject({
+      ...newProject, 
+      [e.target.name]:  e.target.value
+    })
+  }
+  
+  const handleAddNewProject = async(e) =>{
+    e.preventDefault();
+    console.log(newProject)
+    
+  }
+
+  //fetching all project existing projects
   useEffect(()=> {
     const fetchProjects = async () => {
       try {
@@ -46,6 +75,7 @@ const ProjectPage = () => {
     fetchProjects();
   }, []);
 
+  /// fetching the client to for the select option
   useEffect(()=>{
     const fetchClients = async() => {
       try {
@@ -130,14 +160,23 @@ const ProjectPage = () => {
             </button>  
           </div>
 
-          <form action="" className='projectForm'>
+          <form action="" className='projectForm' onSubmit={handleAddNewProject}>
             <label htmlFor="project"> project name</label>
-            <input type="text" name="project" placeholder='E-commerce Platform' required/>
+            <input 
+              type="text" 
+              name="name" 
+              placeholder='E-commerce Platform' 
+              value={newProject.name}
+              onChange={handleChangeProjectInput}
+              required/>
             <label htmlFor="client">client</label>
-            <select name="client">
+            <select name="client" 
+              value={newProject.client}
+              onChange={handleChangeProjectInput}
+            >
               <option value="">-- Select a client company --</option>
               {company.map((comp) => (
-                <option value={comp.company} key={company.id}>
+                <option value={comp.company} key={comp.id}>
                   {comp.company}
                 </option>  
               ))}
@@ -145,23 +184,51 @@ const ProjectPage = () => {
             <div className='formgrid'>
               <div>
                 <label htmlFor="template">template url</label>
-                <input type="url" name="template"  placeholder='https//example.com'required/>
+                <input 
+                  type="url" 
+                  name="templateUrl"  
+                  placeholder='https//example.com'
+                  value={newProject.templateUrl}
+                  onChange={handleChangeProjectInput}
+                  required/>
               </div>
               <div>
                 <label htmlFor="site">website url</label>
-                <input type="url" name="site" placeholder='https://projecturl.com'/>
+                <input 
+                  type="url" 
+                  name="webUrl" 
+                  placeholder='https://projecturl.com'
+                  value={newProject.webUrl}
+                  onChange={handleChangeProjectInput}/>
               </div>
               <div>
                 <label htmlFor="startDate">Start Date</label>
-                <input type="date" name="date" placeholder='start date' required/>
+                <input 
+                  type="date" 
+                  name="startDate" 
+                  placeholder='start date' 
+                  value={newProject.startDate}
+                  onChange={handleChangeProjectInput}
+                  required/>
               </div>
               <div>
                 <label htmlFor="endDate">End Date</label>
-                <input type="date" name="date" placeholder='due date' required/>
+                <input 
+                  type="date" 
+                  name="endDate" 
+                  placeholder='due date' 
+                  value={newProject.endDate}
+                  onChange={handleChangeProjectInput}
+                  required/>
               </div>
             </div>
             <label htmlFor="file">project image</label>
-            <input type="file" name="file" placeholder=''/>
+            <input 
+              type="file" 
+              name="file" 
+              value={newProject.file}
+              onChange={handleChangeProjectInput}
+              placeholder=''/>
             <button type="submit">create project</button>
           </form>
         </div>
