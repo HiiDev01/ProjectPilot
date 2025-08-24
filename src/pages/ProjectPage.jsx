@@ -5,7 +5,7 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { FiExternalLink } from "react-icons/fi";
 import { LiaTimesSolid } from "react-icons/lia";
 import { BsSuitcaseLg } from "react-icons/bs";
-import { getClients, getProjects } from '../apis/Api';
+import { getClients, getProjects, addNewProject } from '../apis/Api';
 
 
 
@@ -17,7 +17,7 @@ const ProjectPage = () => {
     webUrl: "",
     startDate: "",
     endDate: "",
-    file: ""
+    file: null
   });
   const [projects, setProjects] = useState([]);
   const [company, setCompany] = useState([]);
@@ -55,23 +55,24 @@ const ProjectPage = () => {
       [e.target.name]:  e.target.value
     })
   }
+  const handleFileChange = (e) => {
+    setNewProject({
+      ...newProject,
+      file: e.target.files[0]   // store File object
+    });
+  };
   
-  const handleAddNewProject = async(e) =>{
-    e.preventDefault();
-    console.log(newProject)
-    
-  }
-
-  //fetching all project existing projects
-  useEffect(()=> {
-    const fetchProjects = async () => {
-      try {
-        const res = await getProjects()
-        setProjects(res);
-      } catch (error) {
-        setError('error fetching data');
-      }
+  ///fetching the projects existing projects
+  const fetchProjects = async () => {
+    try {
+      const res = await getProjects()
+      setProjects(res);
+    } catch (error) {
+      setError('error fetching data');
     }
+  }
+  //calling the project inside a useEffect
+  useEffect(()=> {
     fetchProjects();
   }, []);
 
@@ -86,7 +87,39 @@ const ProjectPage = () => {
       }
     }
     fetchClients();
-  },[])
+  },[]);
+
+////adding new projects functions
+  const handleAddNewProject = async(e) =>{
+    e.preventDefault();
+    try {
+      const formattedProject = {
+        title: newProject.name,
+        company: newProject.client,
+        status: "pending",          // default until you add status selection
+        dueDate: newProject.endDate,
+        link: newProject.webUrl,
+        templateUrl: newProject.templateUrl,
+        startDate: newProject.startDate,
+        file: newProject.file ? newProject.file.name : null
+      }
+
+      const data = await addNewProject(formattedProject);
+      if(!data){
+        console.log('data can not be recorded')
+      }
+      console.log("project created", data);
+      alert('project successfully added');
+      await fetchProjects();
+      setPopup(false);
+      setNewProject({name: "",client: "",templateUrl: "",webUrl: "",startDate: "",endDate: "",file: null,
+    });
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+
   return (
     <div className='projectPage'>
       <>
@@ -226,8 +259,7 @@ const ProjectPage = () => {
             <input 
               type="file" 
               name="file" 
-              value={newProject.file}
-              onChange={handleChangeProjectInput}
+              onChange={handleFileChange}
               placeholder=''/>
             <button type="submit">create project</button>
           </form>

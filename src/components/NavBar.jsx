@@ -49,7 +49,7 @@ const NavBar = () => {
   
         <div className='userBtn'>
           <div className="userImg">
-            <img src="" alt="" />
+           {/* <img src="" alt="" /> */}
           </div>
           <div className='userInner'>
             <h4>user</h4>

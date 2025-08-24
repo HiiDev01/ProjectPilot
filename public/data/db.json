@@ -103,6 +103,17 @@
       "template": "https://via.placeholder.com/300x200.png?text=Salon+Booking+App",
       "createdAt": "2025-08-15T10:00:00Z",
       "userId": 1
+    },
+    {
+      "id": "992e",
+      "title": "cbvnbvbnm,nbvcnm",
+      "company": "Sweet Treats Ltd.",
+      "status": "pending",
+      "dueDate": "2025-08-18",
+      "link": "http://localhost:5173/projects",
+      "templateUrl": "http://localhost:5173/projects",
+      "startDate": "2025-08-19",
+      "file": "Screenshot (53).png"
     }
   ]
 }

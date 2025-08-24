@@ -22,3 +22,15 @@ export const getInProgess = async () =>{
   const res = await fetch(`${API_URL}/projects?status=in_progress`);
   return await res.json();
 }
+
+export const addNewProject = async (projectData) => {
+  const res = await fetch(`${API_URL}/projects`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(projectData)
+  });
+  if(!res.ok){
+    throw new Error('failed to add new project')
+  }
+  return await res.json();
+}
