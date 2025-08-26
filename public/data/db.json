@@ -114,6 +114,17 @@
       "templateUrl": "http://localhost:5173/projects",
       "startDate": "2025-08-19",
       "file": "Screenshot (53).png"
+    },
+    {
+      "id": "f51e",
+      "title": "zxcbnm",
+      "company": "Helen's Beauty Co.",
+      "status": "pending",
+      "dueDate": "2025-08-13",
+      "link": "http://localhost:5173/projects",
+      "templateUrl": "http://localhost:5173/projects",
+      "startDate": "2025-08-19",
+      "file": "Screenshot (49).png"
     }
   ]
 }

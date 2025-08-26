@@ -5,6 +5,7 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 import { FiExternalLink } from "react-icons/fi";
 import { LiaTimesSolid } from "react-icons/lia";
 import { BsSuitcaseLg } from "react-icons/bs";
+import { FaRegEdit } from "react-icons/fa";
 import { getClients, getProjects, addNewProject } from '../apis/Api';
 
 
@@ -96,7 +97,7 @@ const ProjectPage = () => {
       const formattedProject = {
         title: newProject.name,
         company: newProject.client,
-        status: "pending",          // default until you add status selection
+        status: "pending",         
         dueDate: newProject.endDate,
         link: newProject.webUrl,
         templateUrl: newProject.templateUrl,
@@ -171,6 +172,7 @@ const ProjectPage = () => {
                       target='_blank' 
                       rel='noreferrer'
                     >
+                      <span><FaRegEdit size={18}/></span>
                       <span><FiExternalLink size={18} className='icon'/></span>
                     </a>
                   </td>
