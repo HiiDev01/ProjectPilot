@@ -20,6 +20,7 @@ const ProjectPage = () => {
     endDate: "",
     file: null
   });
+  const [editProject, setEditProject] = useState(null)
   const [projects, setProjects] = useState([]);
   const [company, setCompany] = useState([]);
   const [popup, setPopup] = useState(false);
@@ -72,6 +73,10 @@ const ProjectPage = () => {
       setError('error fetching data');
     }
   }
+
+
+
+
   //calling the project inside a useEffect
   useEffect(()=> {
     fetchProjects();
@@ -121,6 +126,13 @@ const ProjectPage = () => {
   }
 
 
+    ///editing project 
+  const handleEdit = (project) => {
+    setEditProject(project)
+    
+  }
+
+
   return (
     <div className='projectPage'>
       <>
@@ -166,13 +178,19 @@ const ProjectPage = () => {
                     </span>
                   </td>
                   <td>{project.dueDate}</td>
-                  <td>
+                  <td className='tableLinkCon'>
+                    <a href={`/project/${project.id}/edit`}>
+                      <button  
+                        className='editBtn'
+                      >
+                        <FaRegEdit size={18}/>
+                      </button>
+                    </a>
                     <a href={project.link} 
                       className='tableLink' 
                       target='_blank' 
                       rel='noreferrer'
                     >
-                      <span><FaRegEdit size={18}/></span>
                       <span><FiExternalLink size={18} className='icon'/></span>
                     </a>
                   </td>

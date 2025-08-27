@@ -97,11 +97,33 @@
   align-items: center;
   justify-content: center;
  }
- .tableLink{
+ .tableLinkCon{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
+ }
+ .editBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 2px;
+  color: var(--dark-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background-color: none;
+ }
+.editBtn:hover{
+  background-color: var(--orange);
+  color: var(--bg);
+  transition: all 0.2s ease;
+}
+ .tableLink{
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   cursor: pointer;
   text-decoration: none;

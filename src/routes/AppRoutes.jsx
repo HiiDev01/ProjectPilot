@@ -5,6 +5,7 @@ import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
 import Client from '../pages/ClientPage';
 import Project from '../pages/ProjectPage';
+import EditPage from '../pages/EditPage';
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
          <Route path='/dashboard' exact element={<Dashboard/>}/>
          <Route path='/client' exact element={<Client/>}/>
          <Route path='/projects' exact element={<Project/>}/>
+         <Route path='/projects/:id/edit' exact element={<EditPage/>}/>
       </Routes>
     </div>
   )

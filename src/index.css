@@ -15,6 +15,7 @@
   --font-one:  "Space Grotesk", sans-serif;
   --font-two:  "Inter", sans-serif;
   --orange: rgba(255,118,68,255);
+  --border: #f0f0f0;
 }
 .light{
   --main: #004f4f;
