@@ -36,13 +36,31 @@ export const addNewProject = async (projectData) => {
 }
 
 export const updateProject  = async (project) => {
-  const res = await fetch (`${API_URL}/projeccts/${project.id}`, {
+  const res = await fetch(`${API_URL}/projects/${project.id}`, {
     method: 'PUT',
-    headers: {"Content-Type": "application/json"},
+    headers: {
+      "Content-Type": "application/json", 
+    },
     body: JSON.stringify(project)
   });
   if(!res.ok){
     throw new Error('failed to update form')
   }
   return await res.json();
+}
+
+export const updateClientProjectNumber  = async (userId, newCount) =>{
+  try {
+    const res = await fetch(`${API_URL}/clients/${userId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ projectNumber: newCount }),
+    });
+    if (!res.ok) throw new Error("Failed to update client project number");
+
+    return await res.json();
+  } catch (error) {
+    console.error("Error updating client project number:", error);
+    throw error;
+  }
 }

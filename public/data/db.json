@@ -28,18 +28,12 @@
       "notes": "Portfolio-style site with online ordering",
       "created_at": "2025-08-12T14:30:00Z",
       "userId": 1,
-      "projectNumber": 5
+      "projectNumber": 7
     },
     {
-      "id": "7f29",
-      "company": " wertyuio",
-      "email": "sdfghjkl@gmail.com",
-      "projectNumber": 0
-    },
-    {
-      "id": "beac",
-      "company": "sdfghj",
-      "email": "dfghjk@gmail.com",
+      "id": "effc",
+      "company": "me",
+      "email": "1234@gmail.com",
       "projectNumber": 0
     }
   ],
@@ -48,31 +42,41 @@
       "id": "p1",
       "title": "Helen's Online Store",
       "clientName": "Helen Johnson",
-      "company": "Helen's Beauty Co.",
+      "company": "Sweet Treats Ltd.",
       "status": "in_progress",
       "dueDate": "2025-09-10",
-      "startDate": "2025-08-11",
+      "startDate": "2025-08-24",
       "link": "https://solanpro.example.com",
       "price": 250000,
       "stack": "React, Tailwind, Supabase",
       "template": "https://via.placeholder.com/300x200.png?text=Helen+Store+Template",
       "createdAt": "2025-08-11T09:00:00Z",
-      "userId": 1
+      "userId": 1,
+      "name": "gy",
+      "client": "Helen's Beauty Co.",
+      "templateUrl": "http://localhost:5173/projects",
+      "webUrl": "http://localhost:5173/projects",
+      "endDate": "2025-08-30",
+      "file": {}
     },
     {
       "id": "p2",
       "title": "John's Bakery Website",
       "clientName": "John Doe",
-      "company": " wertyuio",
+      "company": "Helen's Beauty Co.",
       "status": "pending",
       "dueDate": "2025-09-05",
-      "startDate": "2025-08-13",
+      "startDate": "2025-08-11",
       "link": "https://solanpro.example.com",
       "price": 180000,
       "stack": "Next.js, Tailwind",
       "template": "https://via.placeholder.com/300x200.png?text=Bakery+Template",
       "createdAt": "2025-08-13T12:00:00Z",
-      "userId": 1
+      "userId": 1,
+      "templateUrl": "http://localhost:5173/projects",
+      "webUrl": "http://localhost:5173/projects",
+      "endDate": "2025-08-30",
+      "file": "Screenshot (55).png"
     },
     {
       "id": "p3",
@@ -105,26 +109,19 @@
       "userId": 1
     },
     {
-      "id": "992e",
-      "title": "cbvnbvbnm,nbvcnm",
+      "id": "1f1d",
+      "title": "welcome",
       "company": "Sweet Treats Ltd.",
       "status": "pending",
-      "dueDate": "2025-08-18",
+      "dueDate": "2025-09-06",
       "link": "http://localhost:5173/projects",
       "templateUrl": "http://localhost:5173/projects",
       "startDate": "2025-08-19",
-      "file": "Screenshot (53).png"
-    },
-    {
-      "id": "f51e",
-      "title": "zxcbnm",
-      "company": "Helen's Beauty Co.",
-      "status": "pending",
-      "dueDate": "2025-08-13",
-      "link": "http://localhost:5173/projects",
-      "templateUrl": "http://localhost:5173/projects",
-      "startDate": "2025-08-19",
-      "file": "Screenshot (49).png"
+      "file": {},
+      "name": "welcome hiii",
+      "client": " wertyuio",
+      "webUrl": "http://localhost:5173/projects",
+      "endDate": "2025-09-27"
     }
   ]
 }

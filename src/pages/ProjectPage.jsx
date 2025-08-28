@@ -6,7 +6,8 @@ import { FiExternalLink } from "react-icons/fi";
 import { LiaTimesSolid } from "react-icons/lia";
 import { BsSuitcaseLg } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
-import { getClients, getProjects, addNewProject } from '../apis/Api';
+import { getClients, getProjects, addNewProject, updateClientProjectNumber } from '../apis/Api';
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -20,12 +21,12 @@ const ProjectPage = () => {
     endDate: "",
     file: null
   });
-  const [editProject, setEditProject] = useState(null)
   const [projects, setProjects] = useState([]);
   const [company, setCompany] = useState([]);
   const [popup, setPopup] = useState(false);
   const [error, setError] = useState(null);
   const popRef = useRef(null);
+  const location = useLocation()
 
   /// button to show the poup form
   const handleShowAddForm = () => {
@@ -78,9 +79,9 @@ const ProjectPage = () => {
 
 
   //calling the project inside a useEffect
-  useEffect(()=> {
+  useEffect(() => {
     fetchProjects();
-  }, []);
+  }, [location]);
 
   /// fetching the client to for the select option
   useEffect(()=>{
@@ -99,6 +100,7 @@ const ProjectPage = () => {
   const handleAddNewProject = async(e) =>{
     e.preventDefault();
     try {
+
       const formattedProject = {
         title: newProject.name,
         company: newProject.client,
@@ -114,23 +116,26 @@ const ProjectPage = () => {
       if(!data){
         console.log('data can not be recorded')
       }
-      console.log("project created", data);
+      const client = await getClients();
+      const existingClient = client.find(c => c.company === newProject.client)
+      if(existingClient){
+        await updateClientProjectNumber(
+          existingClient.id,
+          (existingClient.projectNumber || 0) + 1
+        );
+        console.log("Client project number updated ✅");
+
+      }
       alert('project successfully added');
       await fetchProjects();
       setPopup(false);
       setNewProject({name: "",client: "",templateUrl: "",webUrl: "",startDate: "",endDate: "",file: null,
     });
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   }
 
-
-    ///editing project 
-  const handleEdit = (project) => {
-    setEditProject(project)
-    
-  }
 
 
   return (

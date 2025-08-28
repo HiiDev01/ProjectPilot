@@ -6,6 +6,8 @@
   position: relative;
 }
 .projectMain{
+  width: 100%;
+  height: 100vh;
   overflow: auto;
   flex: 1;
   padding: 10px 20px;
