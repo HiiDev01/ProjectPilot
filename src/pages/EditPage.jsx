@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from "react-router-dom";
-import { getProjects, updateProject } from '../apis/Api';
-import e from 'express';
+import { getProjects, updateProject, getClients } from '../apis/Api';
 
 const EditPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [fillForm, setFillForm] = useState(null);
+  const [company, setComapany] = useState([])
   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
@@ -24,6 +24,18 @@ const EditPage = () => {
     loadProject();
   }, [id]);
 
+  useEffect(()=>{
+    const loadCompany = async () =>{
+      try {
+        const client = await getClients()
+        setComapany(client) 
+      } catch (error) {
+        console.error('failed to fetch companu data in edit page')
+      }
+    }
+    loadCompany()
+  })
+
   const handleChange = (e) =>{
     setFillForm({
       ...fillForm, 
@@ -31,17 +43,17 @@ const EditPage = () => {
     })
   }
 
-  const handleSave = async ()=>{
+  const handleSave = async (e)=>{
     e.preventDefault();
     setLoading(true);
     try {
       await updateProject(fillForm)
-      navigate('/projects')
     } catch (error) {
       console.error(error, 'failed to update form')
     }finally{
       setLoading(false)
     }
+    navigate('/projects')
   }
 
     if (loading) return <p>Loading...</p>;
@@ -50,76 +62,76 @@ const EditPage = () => {
   return (
     <div>
       
-                <form action="" className='projectForm' onSubmit={handleAddNewProject}>
-                  <label htmlFor="project"> project name</label>
-                  <input 
-                    type="text" 
-                    name="name" 
-                    placeholder='E-commerce Platform' 
-                    value={newProject.name}
-                    onChange={handleChangeProjectInput}
-                    required/>
-                  <label htmlFor="client">client</label>
-                  <select name="client" 
-                    value={newProject.client}
-                    onChange={handleChangeProjectInput}
-                  >
-                    <option value="">-- Select a client company --</option>
-                    {company.map((comp) => (
-                      <option value={comp.company} key={comp.id}>
-                        {comp.company}
-                      </option>  
-                    ))}
-                  </select>
-                  <div className='formgrid'>
-                    <div>
-                      <label htmlFor="template">template url</label>
-                      <input 
-                        type="url" 
-                        name="templateUrl"  
-                        placeholder='https//example.com'
-                        value={newProject.templateUrl}
-                        onChange={handleChangeProjectInput}
-                        required/>
-                    </div>
-                    <div>
-                      <label htmlFor="site">website url</label>
-                      <input 
-                        type="url" 
-                        name="webUrl" 
-                        placeholder='https://projecturl.com'
-                        value={newProject.webUrl}
-                        onChange={handleChangeProjectInput}/>
-                    </div>
-                    <div>
-                      <label htmlFor="startDate">Start Date</label>
-                      <input 
-                        type="date" 
-                        name="startDate" 
-                        placeholder='start date' 
-                        value={newProject.startDate}
-                        onChange={handleChangeProjectInput}
-                        required/>
-                    </div>
-                    <div>
-                      <label htmlFor="endDate">End Date</label>
-                      <input 
-                        type="date" 
-                        name="endDate" 
-                        placeholder='due date' 
-                        value={newProject.endDate}
-                        onChange={handleChangeProjectInput}
-                        required/>
-                    </div>
-                  </div>
-                  <label htmlFor="file">project image</label>
-                  <input 
-                    type="file" 
-                    name="file" 
-                    onChange={handleFileChange}
-                    placeholder=''/>
-                  <button type="submit">create project</button>
-                </form>
+      <form action="" className='projectForm' onSubmit={handleSave}>
+        <label htmlFor="project"> project name</label>
+        <input 
+          type="text" 
+          name="name" 
+          placeholder='E-commerce Platform' 
+          value={fillForm.name}
+          onChange={handleChange}
+          required/>
+        <label htmlFor="client">client</label>
+        <select name="client" 
+          value={fillForm.client}
+          onChange={handleChange}
+        >
+          <option value="">-- Select a client company --</option>
+          {company.map((comp) => (
+            <option value={comp.company} key={comp.id}>
+              {comp.company}
+            </option>  
+          ))}
+        </select>
+        <div className='formgrid'>
+          <div>
+            <label htmlFor="template">template url</label>
+            <input 
+              type="url" 
+              name="templateUrl"  
+              placeholder='https//example.com'
+              value={fillForm.templateUrl}
+              onChange={handleChange}
+              required/>
+          </div>
+          <div>
+            <label htmlFor="site">website url</label>
+            <input 
+              type="url" 
+              name="webUrl" 
+              placeholder='https://projecturl.com'
+              value={fillForm.webUrl}
+              onChange={handleChange}/>
+          </div>
+          <div>
+            <label htmlFor="startDate">Start Date</label>
+            <input 
+              type="date" 
+              name="startDate" 
+              placeholder='start date' 
+              value={fillForm.startDate}
+              onChange={handleChange}
+              required/>
+          </div>
+          <div>
+            <label htmlFor="endDate">End Date</label>
+            <input 
+              type="date" 
+              name="endDate" 
+              placeholder='due date' 
+              value={fillForm.endDate}
+              onChange={handleChange}
+              required/>
+          </div>
+        </div>
+        <label htmlFor="file">project image</label>
+        <input 
+          type="file" 
+          name="file" 
+          onChange={handleChange}
+          placeholder=''/>
+        <button type="submit">update project</button>
+      </form>
 
 
     </div>
