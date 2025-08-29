@@ -34,13 +34,19 @@
       "id": "effc",
       "company": "me",
       "email": "1234@gmail.com",
-      "projectNumber": 0
+      "projectNumber": 2
+    },
+    {
+      "id": "12f6",
+      "company": "smart inovation",
+      "email": "example123@gmail.com",
+      "projectNumber": 2
     }
   ],
   "projects": [
     {
       "id": "p1",
-      "title": "Helen's Online Store",
+      "title": "Helen's Online Sto",
       "clientName": "Helen Johnson",
       "company": "Sweet Treats Ltd.",
       "status": "in_progress",
@@ -122,6 +128,53 @@
       "client": " wertyuio",
       "webUrl": "http://localhost:5173/projects",
       "endDate": "2025-09-27"
+    },
+    {
+      "id": "e02e",
+      "title": "bec",
+      "company": "me",
+      "status": "pending",
+      "dueDate": "2025-09-06",
+      "link": "http://localhost:5173/projects",
+      "templateUrl": "http://localhost:5173/projects",
+      "startDate": "2025-09-03",
+      "file": "Screenshot (89).png"
+    },
+    {
+      "id": "3a24",
+      "title": "smart inovaation",
+      "company": "smart inovation",
+      "status": "pending",
+      "dueDate": "2025-08-19",
+      "link": "http://localhost:5173/projects",
+      "templateUrl": "http://localhost:5173/projects",
+      "startDate": "2025-08-19",
+      "file": "Screenshot (54).png"
+    },
+    {
+      "id": "77ea",
+      "title": "new project",
+      "company": "smart inovation",
+      "status": "pending",
+      "dueDate": "2025-08-31",
+      "link": "http://localhost:5173/projects",
+      "templateUrl": "http://localhost:5173/projects",
+      "startDate": "2025-08-24",
+      "file": "Screenshot (54).png"
+    },
+    {
+      "id": "da5f",
+      "title": "this is new",
+      "company": "me",
+      "status": "delivered",
+      "price": "20000",
+      "stack": "html, css, react, node",
+      "dueDate": "2025-08-31",
+      "link": "http://localhost:5173/projects",
+      "templateUrl": "http://localhost:5173/projects",
+      "startDate": "2025-09-14",
+      "file": "Screenshot (52).png",
+      "endDate": "2025-08-30"
     }
   ]
 }

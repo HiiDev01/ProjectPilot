@@ -64,3 +64,9 @@ export const updateClientProjectNumber  = async (userId, newCount) =>{
     throw error;
   }
 }
+
+export const getProjectById = async (id) => {
+  const res = await fetch(`${API_URL}/projects/${id}`);
+  if (!res.ok) throw new Error("Failed to fetch project");
+  return await res.json();
+};

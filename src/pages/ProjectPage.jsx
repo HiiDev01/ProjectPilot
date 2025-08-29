@@ -19,6 +19,9 @@ const ProjectPage = () => {
     webUrl: "",
     startDate: "",
     endDate: "",
+    price: "",
+    status: "",
+    stack: "",  
     file: null
   });
   const [projects, setProjects] = useState([]);
@@ -104,7 +107,9 @@ const ProjectPage = () => {
       const formattedProject = {
         title: newProject.name,
         company: newProject.client,
-        status: "pending",         
+        status: newProject.status,
+        price: newProject.price,
+        stack: newProject.stack,        
         dueDate: newProject.endDate,
         link: newProject.webUrl,
         templateUrl: newProject.templateUrl,
@@ -113,6 +118,7 @@ const ProjectPage = () => {
       }
 
       const data = await addNewProject(formattedProject);
+
       if(!data){
         console.log('data can not be recorded')
       }
@@ -123,13 +129,23 @@ const ProjectPage = () => {
           existingClient.id,
           (existingClient.projectNumber || 0) + 1
         );
-        console.log("Client project number updated ✅");
+        console.log("Client project number updated");
 
       }
       alert('project successfully added');
       await fetchProjects();
       setPopup(false);
-      setNewProject({name: "",client: "",templateUrl: "",webUrl: "",startDate: "",endDate: "",file: null,
+      setNewProject({
+        name: "",
+        client: "",
+        templateUrl: "",
+        webUrl: "",
+        startDate: "",
+        endDate: "",
+        file: null,
+        price: "",
+        status: "",
+        stack: "",
     });
     } catch (error) {
       console.error(error);
@@ -191,7 +207,7 @@ const ProjectPage = () => {
                         <FaRegEdit size={18}/>
                       </button>
                     </a>
-                    <a href={project.link} 
+                    <a href={`project/${project.id}/detail`} 
                       className='tableLink' 
                       target='_blank' 
                       rel='noreferrer'
@@ -232,13 +248,47 @@ const ProjectPage = () => {
               value={newProject.client}
               onChange={handleChangeProjectInput}
             >
-              <option value="">-- Select a client company --</option>
+              <option value="" disabled>-- Select a client company --</option>
               {company.map((comp) => (
                 <option value={comp.company} key={comp.id}>
                   {comp.company}
                 </option>  
               ))}
             </select>
+            <div className="formnest">
+              <div>
+                <label htmlFor="price">price</label>
+                <input type="text"   
+                  name="price" 
+                  placeholder="price"
+                  value={newProject.price}
+                  onChange={handleChangeProjectInput}
+                />
+              </div>
+              <div>
+                <label htmlFor="status">status</label>
+                <select   
+                  name="status"
+                  value={newProject.status}
+                  onChange={handleChangeProjectInput}
+                >
+                  <option value="" disabled>--select project status</option>
+                  <option value="pending">pending</option>
+                  <option value="delivered">delivered</option>
+                  <option value="in_progress">in progress</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="stack">Tech stack</label>
+                <input 
+                  type="text" 
+                  name="stack" 
+                  placeholder="e.g React, Node.js"
+                  value={newProject.stack}
+                  onChange={handleChangeProjectInput}
+                />
+              </div>
+            </div>
             <div className='formgrid'>
               <div>
                 <label htmlFor="template">template url</label>

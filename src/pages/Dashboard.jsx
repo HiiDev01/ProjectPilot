@@ -133,7 +133,7 @@ const Dashboard = () => {
                           <div className='clientImgCon'>
                             {/*<img src="" alt="" />*/}
                           </div>
-                          {projects.clientName}
+                          {projects.company}
                         </td>
                         <td className='status'> 
                           <span className={`status-badge ${projects.status}`}>

@@ -1,0 +1,69 @@
+.detailPage{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+}
+.Det_Main{
+  width: 100%;
+  height: 100vh;
+  padding: 10px 20px;
+  border: 1px solid black;
+}
+.container{
+  width: 100%;
+  border: 1px solid black;
+}
+.container h1{
+  font-size: 1.5rem;
+  color: var(--dark-text);
+  font-family: var(--font-two);
+  margin: 0px 0px 20px 0px;
+}
+.container .imageCon{
+  width: 100%;
+  height: 60vh;
+  background-color: var(--shadow);
+  border-radius: 10px;
+  margin: 0px 0px 20px 0px ;
+}
+.det_body{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.para_det{
+  flex: 1;
+}
+.para_det p{
+  font-size: 1rem;
+  color: var(--dark-text);
+  font-family: var(--font-two);
+  font-weight: 400;
+  font-style: normal;
+  text-transform: capitalize;
+  margin: 10px 0px;
+}
+.para_Link{
+  width: max-content;
+}
+.para_Link a{
+  font-size: 1rem;
+  color: var(--dark-text);
+  font-family: var(--font-two);
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.backPara{
+  display: block;
+  margin: 0px 0px 20px 0px;
+}
+.backLink{
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  text-transform: capitalize;
+  color: var(--dark-text);
+  font-size: 1rem;
+  font-family: var(--font-two);
+}
