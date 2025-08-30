@@ -10,24 +10,46 @@
   height: 100%;
   overflow: auto;
   flex: 1;
-  padding: 10px 20px 0px 20px;
+  padding: 0px 20px 0px 20px;
 }
-.head{
+.Dashhead{
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 0px 20px 0px;
 }
-.head h1{
+.Dashhead h1{
   font-size: 1.7rem;
   color: var(--dark-text);
   font-family: var(--font-one);
   text-transform: capitalize;
   font-weight: 500;
 }
-.head p{
+.Dashhead p{
   font-family: var(--font-one);
   color: var(--light-text);
   font-weight: 400;
   font-size: 1rem;
   text-align: left;
+}
+.dashHeadLink{
+  display: inline-block;
+  font-family: var(--font-two);
+  font-weight: 400;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  color: var(--bg);
+  background-color: var(--main);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.dashHeadLink:hover{
+  opacity: 0.8;
+  transition: all 0.2s ease;
 }
 .dashGrid{
   display: grid;
@@ -102,6 +124,7 @@
   margin: 0px 0px 10px 0px;
 }
 .projectTable{
+  border-collapse: collapse;
   width: 100%;
 }
 .projectTable th{

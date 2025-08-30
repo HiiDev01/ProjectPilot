@@ -209,7 +209,6 @@ const ProjectPage = () => {
                     </a>
                     <a href={`project/${project.id}/detail`} 
                       className='tableLink' 
-                      target='_blank' 
                       rel='noreferrer'
                     >
                       <span><FiExternalLink size={18} className='icon'/></span>

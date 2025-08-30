@@ -66,9 +66,12 @@ const Dashboard = () => {
         <NavBar/>
       </>
       <div className='main'>
-        <div className='head'>
-          <h1>Dashboard</h1>
-          <p>A quick overview of your business.</p>
+        <div className='Dashhead'>
+          <div>
+            <h1>Dashboard</h1>
+            <p>A quick overview of your business.</p>
+          </div>
+          <a href="/client" className='dashHeadLink'>add project</a>
         </div>
         <div className="dashGrid">
           <div className='dashItem'>

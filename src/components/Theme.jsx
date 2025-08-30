@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { MdOutlineWbSunny } from "react-icons/md";
+import { LuSunMoon } from "react-icons/lu";
 
 const Theme = () => {
   const [theme, setTheme] = useState('light');
 
   useEffect(()=>{
-    const savedTheme = localStorage.getItem('Theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'light';
     setTheme(savedTheme);
     document.body.className = savedTheme;
   }, []);
@@ -20,9 +22,9 @@ const Theme = () => {
     <div className='Theme'>
       <button onClick={ToggleTheme}>
         {theme === 'light' ? (
-          <p>dark</p>
+          <p><LuSunMoon size={18}/></p>
         ): (
-          <p>light</p>
+          <p><MdOutlineWbSunny size={18}/></p>
         )}
       </button>
     </div>

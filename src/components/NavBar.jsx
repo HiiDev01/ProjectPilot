@@ -13,8 +13,8 @@ const NavBar = () => {
     {name: 'dashboard', path: '/dashboard', icon: <FiHome size={18}/>},
      {name: 'client', path: '/client', icon: <LuUsers size={18}/>},
       {name: 'project', path: '/projects', icon: <GrProjects size={18}/>},
-      {name: 'email client', path: '/email client', icon: <MdOutlineEmail size={18}/>},
-      {name: 'premium plan', path: '/email client', icon: <BsStars size={18}/>},
+      /*{name: 'email client', path: '/email client', icon: <MdOutlineEmail size={18}/>},
+      {name: 'premium plan', path: '/email client', icon: <BsStars size={18}/>},*/
   ]
   return (
     <div className='navbar'>
@@ -33,19 +33,25 @@ const NavBar = () => {
       </div>
 
       <div className='navWrapper'>
-        <ul>
-          {navList.map((list, index) => (
-            <NavLink to={list.path} key={index} 
-              className={({isActive}) =>
-              isActive ? "navlink active" : "navlink"}
-            >
-              <li>
-                <span>{list.icon}</span>
-                {list.name}
-              </li>
-            </NavLink>
-          ))}
-        </ul>
+        <div className='navMinWrapper'>
+          <ul>
+            {navList.map((list, index) => (
+              <NavLink to={list.path} key={index} 
+                className={({isActive}) =>
+                isActive ? "navlink active" : "navlink"}
+              >
+                <li>
+                  <span>{list.icon}</span>
+                  {list.name}
+                </li>
+              </NavLink>
+            ))}
+          </ul>
+          <div className='ThemeWrapper'>
+            <Theme/>
+            <p>change mode</p>
+          </div>
+        </div>
   
         <div className='userBtn'>
           <div className="userImg">

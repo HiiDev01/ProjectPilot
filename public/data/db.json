@@ -118,7 +118,7 @@
       "id": "1f1d",
       "title": "welcome",
       "company": "Sweet Treats Ltd.",
-      "status": "pending",
+      "status": "delivered",
       "dueDate": "2025-09-06",
       "link": "http://localhost:5173/projects",
       "templateUrl": "http://localhost:5173/projects",
